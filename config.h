@@ -15,13 +15,13 @@ static int swallowfloating    = 0;        /* 1 means swallow floating windows by
 static int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
-static char *fonts[]          = { "monospace:size=11", "JoyPixels:pixelsize=10:antialias=true:autohint=true"  };
-static char normbgcolor[]           = "#222222";
-static char normbordercolor[]       = "#444444";
+static char *fonts[]          = { "JetBrains Mono:size=12", "JoyPixels:pixelsize=10:antialias=true:autohint=true"  };
+static char normbgcolor[]           = "#000000";
+static char normbordercolor[]       = "#000000";
 static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
-static char selbordercolor[]        = "#770000";
-static char selbgcolor[]            = "#005577";
+static char selbordercolor[]        = "#1434A4";
+static char selbgcolor[]            = "#000000";
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -41,7 +41,7 @@ static Sp scratchpads[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "🐧", "💻", "🌐", "🎵", "", ">_", "📁", "🌋", "🌌" };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -52,6 +52,7 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       	    1 << 8,       0,           0,         0,        -1 },
 	{ TERMCLASS,  NULL,       NULL,       	    0,            0,           1,         0,        -1 },
 	{ NULL,       NULL,       "Event Tester",   0,            0,           0,         1,        -1 },
+	{ NULL,      "bg",        NULL,       	    0,            0,           1,    1 << 7,        -1 },
 	{ NULL,      "spterm",    NULL,       	    SPTAG(0),     1,           1,         0,        -1 },
 	{ NULL,      "spcalc",    NULL,       	    SPTAG(1),     1,           1,         0,        -1 },
 };
@@ -244,7 +245,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_F8,		spawn,		SHCMD("mw -Y") },
 	{ MODKEY,			XK_F9,		spawn,		SHCMD("dmenumount") },
 	{ MODKEY,			XK_F10,		spawn,		SHCMD("dmenuumount") },
-	{ MODKEY,			XK_F11,		spawn,		SHCMD("mpv --no-cache --no-osc --no-input-default-bindings --profile=low-latency --input-conf=/dev/null --title=webcam $(ls /dev/video[0,2,4,6,8] | tail -n 1)") },
+	{ MODKEY,			XK_F11,		spawn,		SHCMD("mpv --untimed --no-cache --no-osc --no-input-default-bindings --profile=low-latency --input-conf=/dev/null --title=webcam $(ls /dev/video[0,2,4,6,8] | tail -n 1)") },
 	{ MODKEY,			XK_F12,		spawn,		SHCMD("remaps & notify-send \\\"⌨️ Keyboard remapping...\\\" \\\"Re-running keyboard defaults for any newly plugged-in keyboards.\\\"") },
 	{ MODKEY,			XK_space,	zoom,		{0} },
 	{ MODKEY|ShiftMask,		XK_space,	togglefloating,	{0} },
