@@ -19,8 +19,8 @@ static char *fonts[]          = { "JetBrains Mono:size=12", "JoyPixels:pixelsize
 static char normbgcolor[]           = "#000000";
 static char normbordercolor[]       = "#000000";
 static char normfgcolor[]           = "#bbbbbb";
-static char selfgcolor[]            = "#eeeeee";
-static char selbordercolor[]        = "#1434A4";
+static char selfgcolor[]            = "#000000";
+static char selbordercolor[]        = "#000000";
 static char selbgcolor[]            = "#000000";
 static char *colors[][3] = {
        /*               fg           bg           border   */
